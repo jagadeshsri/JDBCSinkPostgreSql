@@ -1,0 +1,22 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Launch MainJob",
+            "request": "launch",
+            "mainClass": "MainJob",
+            "projectName": "JDBCSinkPostgreSql",
+            "vmArgs": "-DDBconnection=jdbc:postgresql://machdatum-demo.postgres.database.azure.com:5432"// -DDBuser='cnc_client@machdatum-demo' -DDBpassword='anand' -DDBname='postgres' -DDBtable='public.dataupsert' -DbootstrapServer='164.52.208.60:29092' -Dtopic='cc5ad252-a71a-429c-b213-61d44d2a4efb' -Dkey='META_Key'"// -Dschema='`META_Key`  STRING,`Value`  INT,`Timestamp`  BIGINT'"
+        }
+    ]
+}
