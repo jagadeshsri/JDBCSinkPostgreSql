@@ -4,6 +4,7 @@ import org.apache.flink.table.api.EnvironmentSettings;
 import org.apache.flink.table.api.Table;
 import org.apache.flink.table.api.bridge.java.StreamTableEnvironment;
 
+import java.util.Optional;
 import java.util.UUID;
 
 public class MainJob {
@@ -14,16 +15,16 @@ public class MainJob {
 
         ParameterTool parameter = ParameterTool.fromArgs(args);
 
-        String[] arguments = parameter.getRequired("input").split(";");
-        String DBconnection = arguments[0];
-        String DBuser = arguments[1];
-        String DBpassword =  arguments[2];
-        String DBname = arguments[3], DBtable = arguments[4];
-        String topic = arguments[6], bootstrapServer = arguments[7];
-        String schema,key=null;
-
-        schema = arguments[5].replace("_"," ");
-
+        String[] inputs = parameter.getRequired("input").split(";");
+        String DBconnection = inputs[0];
+        String DBuser = inputs[1];
+        String DBpassword =  inputs[2];
+        String DBname = inputs[3], DBtable = inputs[4];
+        String topic = inputs[6], bootstrapServer = inputs[7];
+        String schema = inputs[5].replace("_"," ");
+        String key = null;
+        if(inputs.length>7)
+            key = inputs[8];
         String inputQuery = "CREATE TABLE InputTable("+ schema;
         String sinkQuery  = "CREATE TABLE SinkTable ("+ schema;
 
