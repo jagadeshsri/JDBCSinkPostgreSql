@@ -3,12 +3,12 @@
   <component name="issues">
     <option name="index">
       <map>
-        <entry key="D:/FlinkUdf/pom.xml">
+        <entry key="$PROJECT_DIR$/../FlinkUdf/pom.xml">
           <value>
             <set />
           </value>
         </entry>
-        <entry key="D:/FlinkUdf/src/main/java/com/thingmanage/test/StreamingJob.java">
+        <entry key="$PROJECT_DIR$/../FlinkUdf/src/main/java/com/thingmanage/test/StreamingJob.java">
           <value>
             <set />
           </value>
@@ -19,6 +19,26 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/main/java/MainJob.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="E:/log4j-elasticsearch-java-api/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="E:/log4j-elasticsearch-java-api/src/main/java/com/letfy/log4j/appenders/ElasticSearchClientAppender.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="E:/submitJob/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="E:/submitJob/src/main/java/SubmitJob.java">
           <value>
             <set />
           </value>

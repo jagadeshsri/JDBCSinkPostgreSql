@@ -8,20 +8,24 @@ import java.util.UUID;
 
 public class MainJob {
     public static void main(String[] args) throws Exception {
-       StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
-       EnvironmentSettings settings = EnvironmentSettings.newInstance().inStreamingMode().useBlinkPlanner().build();
-       StreamTableEnvironment tEnv = StreamTableEnvironment.create(env, settings);
+        StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
+        EnvironmentSettings settings = EnvironmentSettings.newInstance().inStreamingMode().useBlinkPlanner().build();
+        StreamTableEnvironment tEnv = StreamTableEnvironment.create(env, settings);
 
         ParameterTool parameter = ParameterTool.fromArgs(args);
 
-       String key = parameter.get("table.key"),topic = parameter.get("kafka.topic"), bootstrapServer = parameter.get("kafka.bootstrap.Server");
-       String schema = parameter.get("table.schema").replace("_"," ");
+        String[] arguments = parameter.getRequired("input").split(";");
+        String DBconnection = arguments[0];
+        String DBuser = arguments[1];
+        String DBpassword =  arguments[2];
+        String DBname = arguments[3], DBtable = arguments[4];
+        String topic = arguments[6], bootstrapServer = arguments[7];
+        String schema,key=null;
 
-       String DBconnection = parameter.get("DB.connection"), DBuser = parameter.get("DB.user"), DBpassword =  parameter.get("DB.password");
-       String DBname = parameter.get("DB.name"), DBtable = parameter.get("DB.table");
+        schema = arguments[5].replace("_"," ");
 
-       String inputQuery = "CREATE TABLE InputTable("+ schema;
-       String sinkQuery  = "CREATE TABLE SinkTable ("+ schema;
+        String inputQuery = "CREATE TABLE InputTable("+ schema;
+        String sinkQuery  = "CREATE TABLE SinkTable ("+ schema;
 
         if(key != null){
             inputQuery = inputQuery.concat(",PRIMARY KEY(`"+key+"`) NOT ENFORCED"
