@@ -53,7 +53,7 @@ public class MainJob {
                        + "WITH"
                        + "("
                        + "'connector' = 'jdbc',"
-                       + "'url' = '"+DBconnection+"/"+DBname+"?user="+DBuser+"&password="+DBpassword+"',"
+                       + "'url' = '"+DBconnection+"/"+DBname+"?user="+DBuser+"&password="+DBpassword+"&sslmode=require',"
                        + "'table-name' = '"+DBtable+"')");
        tEnv.executeSql(inputQuery);
        tEnv.executeSql(sinkQuery);
