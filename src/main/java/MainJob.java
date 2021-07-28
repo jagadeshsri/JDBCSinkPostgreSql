@@ -4,7 +4,6 @@ import org.apache.flink.table.api.EnvironmentSettings;
 import org.apache.flink.table.api.Table;
 import org.apache.flink.table.api.bridge.java.StreamTableEnvironment;
 
-import java.util.Optional;
 import java.util.UUID;
 
 public class MainJob {
@@ -21,7 +20,7 @@ public class MainJob {
         String DBpassword =  inputs[2];
         String DBname = inputs[3], DBtable = inputs[4];
         String topic = inputs[6], bootstrapServer = inputs[7];
-        String schema = inputs[5].replace("_"," ");
+        String schema = inputs[5].replace("%"," ");
         String key = null;
         if(inputs.length>7)
             key = inputs[8];
